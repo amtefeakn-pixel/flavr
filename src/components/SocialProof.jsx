@@ -28,10 +28,10 @@ const SocialProof = () => {
     };
 
     const reviews = [
-        { name: 'Sarah J.', text: 'Absolutely love the Lemon Zest! So refreshing after a workout.', rating: '⭐⭐⭐⭐⭐' },
-        { name: 'Mike T.', text: 'Finally a flavored water that doesn\'t taste artificial. 10/10.', rating: '⭐⭐⭐⭐⭐' },
-        { name: 'Emily R.', text: 'The packaging is beautiful and the taste is even better.', rating: '⭐⭐⭐⭐⭐' },
-        { name: 'David L.', text: 'My go-to drink for summer. Strawberry Splash is the best.', rating: '⭐⭐⭐⭐' },
+        { name: 'Selin Y.', text: 'Limon Kabuğu lezzetine bayıldım! Spordan sonra o kadar ferahlatıcı ki.', rating: '⭐⭐⭐⭐⭐' },
+        { name: 'Mert T.', text: 'Sonunda yapay tat vermeyen aromalı bir su. 10/10.', rating: '⭐⭐⭐⭐⭐' },
+        { name: 'Elif R.', text: 'Ambalajı harika ve tadı daha da güzel. Kesinlikle tavsiye ederim.', rating: '⭐⭐⭐⭐⭐' },
+        { name: 'Davut L.', text: 'Yazın vazgeçilmez içeceğim. Çilek Rüyası favorim.', rating: '⭐⭐⭐⭐' },
     ];
 
     return (

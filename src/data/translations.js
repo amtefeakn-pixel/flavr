@@ -104,6 +104,20 @@ export const translations = {
             air_flavor: {
                 title: "LEZZET TADINDAN GELİYOR",
                 subtitle: "Alışılmışın dışındaki saf lezzeti keşfedin."
+            },
+            detail: {
+                origin_story: "Köken & Hikaye",
+                benefits: "Faydalar & Besin Değerleri",
+                calories: "Kalori",
+                sugar: "Şeker",
+                ingredients: "İçindekiler",
+                best_for: "En İyi Kullanım",
+                pairing: "Mükemmel Eşleşmeler",
+                buy_now: "Hemen Satın Al",
+                back_to_menu: "Menüye Dön",
+                not_found_title: "Lezzet Bulunamadı",
+                not_found_desc: "Aradığınız lezzeti bulamadık.",
+                return_home: "Ana Sayfaya Dön"
             }
         }
     },
@@ -212,6 +226,20 @@ export const translations = {
             air_flavor: {
                 title: "FLAVOR COMES FROM TASTE",
                 subtitle: "Discover the pure taste beyond the ordinary."
+            },
+            detail: {
+                origin_story: "Origin & Story",
+                benefits: "Benefits & Nutrition",
+                calories: "Calories",
+                sugar: "Sugar",
+                ingredients: "Ingredients",
+                best_for: "Best For",
+                pairing: "Perfect Pairings",
+                buy_now: "Buy Now",
+                back_to_menu: "Back to Menu",
+                not_found_title: "Flavor Not Found",
+                not_found_desc: "We couldn't find the flavor you're looking for.",
+                return_home: "Return Home"
             }
         }
     }
