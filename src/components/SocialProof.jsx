@@ -41,16 +41,18 @@ const SocialProof = () => {
                     <h2 style={{ textAlign: 'center', marginBottom: '40px', color: 'var(--color-primary)' }}>{t('social.reviews_title')}</h2>
                 </ScrollReveal>
 
-                <div className="social-scroll">
-                    {reviews.map((review, index) => (
-                        <ScrollReveal key={index} delay={index * 0.2} className="social-card-wrapper">
-                            <div style={cardStyle}>
-                                <div style={{ marginBottom: '10px' }}>{review.rating}</div>
-                                <p style={{ fontStyle: 'italic', marginBottom: '20px', color: '#555' }}>"{review.text}"</p>
-                                <h5 style={{ fontWeight: '600' }}>{review.name}</h5>
-                            </div>
-                        </ScrollReveal>
-                    ))}
+                <div className="social-scroll-wrapper">
+                    <div className="social-scroll">
+                        {reviews.map((review, index) => (
+                            <ScrollReveal key={index} delay={index * 0.2} className="social-card-wrapper">
+                                <div className="testimonial-card">
+                                    <div style={{ marginBottom: '10px' }}>{review.rating}</div>
+                                    <p style={{ fontStyle: 'italic', marginBottom: '20px', color: '#555' }}>"{review.text}"</p>
+                                    <h5 style={{ fontWeight: '600' }}>{review.name}</h5>
+                                </div>
+                            </ScrollReveal>
+                        ))}
+                    </div>
                 </div>
             </div>
         </section>
