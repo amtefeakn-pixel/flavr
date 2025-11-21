@@ -45,10 +45,10 @@ const FlavorDetailPage = () => {
             <>
                 <Header />
                 <div className="container" style={{ paddingTop: '150px', textAlign: 'center', minHeight: '60vh' }}>
-                    <h2>{t('detail.not_found_title')}</h2>
-                    <p>{t('detail.not_found_desc')}</p>
+                    <h2>Lezzet Bulunamadı</h2>
+                    <p>Aradığınız lezzeti bulamadık.</p>
                     <Link to="/">
-                        <Button>{t('detail.return_home')}</Button>
+                        <Button>Ana Sayfaya Dön</Button>
                     </Link>
                 </div>
                 <Footer />
@@ -142,16 +142,16 @@ const FlavorDetailPage = () => {
                         {t(`products.${productKey}.desc`)}
                     </p>
                     <div style={{ display: 'flex', gap: '15px', flexWrap: 'wrap', justifyContent: 'center' }}>
-                        <Button>{t('detail.buy_now')}</Button>
+                        <Button>Hemen Satın Al</Button>
                         <Link to="/">
-                            <Button variant="outline">{t('detail.back_to_menu')}</Button>
+                            <Button variant="outline">Menüye Geri Dön</Button>
                         </Link>
                     </div>
                 </section>
 
                 {/* Aroma Story */}
                 <section style={sectionStyle}>
-                    <h2 style={{ fontSize: '28px', marginBottom: '20px', color: '#333' }}>{t('detail.origin_story')}</h2>
+                    <h2 style={{ fontSize: '28px', marginBottom: '20px', color: '#333' }}>Ürünün Hikayesi</h2>
                     <p style={{ fontSize: '18px', lineHeight: '1.8', color: '#555' }}>
                         {t(`products.${productKey}.story`)}
                     </p>
@@ -159,23 +159,23 @@ const FlavorDetailPage = () => {
 
                 {/* Benefits & Facts */}
                 <section style={sectionStyle}>
-                    <h2 style={{ fontSize: '28px', marginBottom: '20px', color: '#333' }}>{t('detail.benefits')}</h2>
+                    <h2 style={{ fontSize: '28px', marginBottom: '20px', color: '#333' }}>Faydaları</h2>
                     <table style={tableStyle}>
                         <tbody>
                             <tr>
-                                <th style={thStyle}>{t('detail.calories')}</th>
+                                <th style={thStyle}>Kalori</th>
                                 <td style={tdStyle}>0</td>
                             </tr>
                             <tr>
-                                <th style={thStyle}>{t('detail.sugar')}</th>
+                                <th style={thStyle}>Şeker</th>
                                 <td style={tdStyle}>0g</td>
                             </tr>
                             <tr>
-                                <th style={thStyle}>{t('detail.ingredients')}</th>
+                                <th style={thStyle}>İçindekiler</th>
                                 <td style={tdStyle}>{t(`products.${productKey}.ingredients`)}</td>
                             </tr>
                             <tr>
-                                <th style={thStyle}>{t('detail.best_for')}</th>
+                                <th style={thStyle}>En İyi Kullanım</th>
                                 <td style={tdStyle}>{t(`products.${productKey}.best_for`)}</td>
                             </tr>
                         </tbody>
@@ -184,7 +184,7 @@ const FlavorDetailPage = () => {
 
                 {/* Usage & Pairing */}
                 <section style={sectionStyle}>
-                    <h2 style={{ fontSize: '28px', marginBottom: '20px', color: '#333' }}>{t('detail.pairing')}</h2>
+                    <h2 style={{ fontSize: '28px', marginBottom: '20px', color: '#333' }}>Önerilen Eşleşmeler</h2>
                     <p style={{ fontSize: '18px', lineHeight: '1.8', color: '#555' }}>
                         {t(`products.${productKey}.pairing`)}
                     </p>
