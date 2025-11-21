@@ -120,6 +120,9 @@ const FlavorDetailPage = () => {
                         src={getImagePath(productKey)}
                         alt={t(`products.${productKey}.name`)}
                         style={imageStyle}
+                        width="400"
+                        height="400"
+                        loading="eager"
                     />
                     <h1 style={{
                         fontSize: 'clamp(32px, 5vw, 48px)',

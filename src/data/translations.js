@@ -106,15 +106,15 @@ export const translations = {
                 subtitle: "Alışılmışın dışındaki saf lezzeti keşfedin."
             },
             detail: {
-                origin_story: "Köken & Hikaye",
-                benefits: "Faydalar & Besin Değerleri",
+                origin_story: "Ürünün Hikayesi",
+                benefits: "Faydaları",
                 calories: "Kalori",
                 sugar: "Şeker",
                 ingredients: "İçindekiler",
-                best_for: "En İyi Kullanım",
-                pairing: "Mükemmel Eşleşmeler",
+                best_for: "En İyi Eşleştiği Durum",
+                pairing: "Önerilen Eşleşmeler",
                 buy_now: "Hemen Satın Al",
-                back_to_menu: "Menüye Dön",
+                back_to_menu: "Menüye Geri Dön",
                 not_found_title: "Lezzet Bulunamadı",
                 not_found_desc: "Aradığınız lezzeti bulamadık.",
                 return_home: "Ana Sayfaya Dön"
