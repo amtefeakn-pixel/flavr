@@ -22,3 +22,19 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Personal/Random files
+*.zip
+*.rar
+*.exe
+*.pdf
+*.docx
+*.pptx
+*.png
+*.jpg
+*.mp4
+!src/**/*.png
+!src/**/*.jpg
+!public/**/*.png
+!public/**/*.jpg
+.env
