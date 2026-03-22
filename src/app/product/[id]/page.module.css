@@ -137,4 +137,45 @@
     .imageWrapper {
         height: 300px;
     }
+
+    .container {
+        padding-top: 20px;
+        padding-bottom: 50px;
+    }
+}
+
+@media (max-width: 600px) {
+    .grid {
+        gap: 1.5rem;
+    }
+
+    .imageWrapper {
+        height: 250px;
+        border-radius: 12px;
+    }
+
+    .title {
+        font-size: 1.75rem;
+    }
+
+    .price {
+        font-size: 1.6rem;
+    }
+
+    .description {
+        font-size: 1rem;
+    }
+
+    .details {
+        gap: 1.5rem;
+    }
+
+    .ingredients {
+        padding: 1rem;
+    }
+
+    .ingredient {
+        font-size: 0.9rem;
+        padding: 0.6rem 0;
+    }
 }

@@ -1,3 +1,4 @@
+"use client";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
@@ -8,7 +9,7 @@ export default function Contact() {
             <div className="container section">
                 <h1 style={{ color: "var(--primary-green)", fontSize: "2.5rem", marginBottom: "2rem" }}>Bize Ulaşın</h1>
 
-                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "4rem" }}>
+                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "2rem" }} className="contact-grid">
                     <div>
                         <p style={{ marginBottom: "2rem", color: "var(--text-muted)", lineHeight: "1.6" }}>
                             Sorularınız, önerileriniz veya geri bildirimleriniz için bize her zaman ulaşabilirsiniz. Ekibimiz en kısa sürede size dönüş yapacaktır.
@@ -45,6 +46,14 @@ export default function Contact() {
                     </form>
                 </div>
             </div>
+            <style jsx>{`
+              @media (max-width: 768px) {
+                .contact-grid {
+                  grid-template-columns: 1fr !important;
+                  gap: 2rem !important;
+                }
+              }
+            `}</style>
             <Footer />
         </main>
     );

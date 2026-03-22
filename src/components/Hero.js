@@ -8,6 +8,7 @@ import { useRouter } from "next/navigation";
 
 export default function Hero() {
     const { scrollY } = useScroll();
+    const [isMobile, setIsMobile] = useState(false);
     const y = useTransform(scrollY, [0, 500], [0, 150]);
     const router = useRouter();
 
@@ -21,6 +22,13 @@ export default function Hero() {
     const [isTorn, setIsTorn] = useState(false);
     const [isZooming, setIsZooming] = useState(false);
     const controls = useAnimation();
+
+    useEffect(() => {
+        const checkMobile = () => setIsMobile(window.innerWidth <= 600);
+        checkMobile();
+        window.addEventListener("resize", checkMobile);
+        return () => window.removeEventListener("resize", checkMobile);
+    }, []);
 
     useEffect(() => {
         const handleMouseMove = (e) => {
@@ -83,7 +91,7 @@ export default function Hero() {
 
                 <motion.div
                     className={`${styles.imageWrapper} ${isZooming ? styles.wrapperZoom : ""}`}
-                    style={{ y }}
+                    style={isMobile ? {} : { y }}
                     animate={isZooming ? { scale: 15, opacity: 0 } : { scale: 1, opacity: 1 }}
                     transition={{ duration: 1, ease: "easeInOut" }}
                 >

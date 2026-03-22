@@ -14,6 +14,13 @@ export const metadata = {
   description: "Hedeflerinize ve yaşam tarzınıza uygun, günlük vitamin paketleri.",
 };
 
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+  userScalable: true,
+};
+
 export default function RootLayout({ children }) {
   return (
     <html lang="tr">
