@@ -23,6 +23,7 @@
     "resend": "^6.9.4"
   },
   "devDependencies": {
+    "@netlify/plugin-nextjs": "^5.15.9",
     "eslint": "^9",
     "eslint-config-next": "16.0.5"
   }
