@@ -1,0 +1,484 @@
+/* ── Overlay ── */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(15, 23, 42, 0.5);
+    backdrop-filter: blur(12px);
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* ── Modal ── */
+.modal {
+    width: 92%;
+    max-width: 1200px;
+    height: 88vh;
+    background: var(--background-white);
+    border-radius: 20px;
+    box-shadow: 0 25px 60px -12px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    position: relative;
+    border: 1px solid var(--border);
+}
+
+/* ── Header ── */
+.header {
+    padding: 1.25rem 2rem;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(135deg, var(--background-white) 0%, var(--beige) 100%);
+    flex-shrink: 0;
+}
+
+.headerLeft {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.titleIcon {
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, var(--primary-yellow), var(--action-orange));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    flex-shrink: 0;
+}
+
+.title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-main);
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+}
+
+.subtitle {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-top: 2px;
+}
+
+.closeBtn {
+    width: 36px;
+    height: 36px;
+    background: white;
+    border: 1px solid var(--border);
+    padding: 0;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-muted);
+    flex-shrink: 0;
+}
+
+.closeBtn:hover {
+    background: #fee2e2;
+    border-color: #fca5a5;
+    color: #dc2626;
+}
+
+/* ── Toolbar (Search + Filters) ── */
+.toolbar {
+    padding: 1.25rem 2rem;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    background: white;
+    flex-shrink: 0;
+}
+
+.searchWrapper {
+    position: relative;
+}
+
+.searchIcon {
+    position: absolute;
+    left: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-muted);
+    pointer-events: none;
+}
+
+.searchInput {
+    width: 100%;
+    padding: 0.8rem 1rem 0.8rem 2.75rem;
+    border-radius: var(--radius);
+    border: 1.5px solid var(--border);
+    font-size: 0.95rem;
+    outline: none;
+    transition: all 0.2s ease;
+    background: var(--background-white);
+    color: var(--text-main);
+    font-family: inherit;
+}
+
+.searchInput:focus {
+    border-color: var(--corporate-blue);
+    box-shadow: 0 0 0 3px rgba(32, 112, 160, 0.1);
+    background: white;
+}
+
+.searchInput::placeholder {
+    color: #94a3b8;
+}
+
+.filterRow {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.filterIcon {
+    color: var(--text-muted);
+    flex-shrink: 0;
+}
+
+.clusterTabs {
+    display: flex;
+    gap: 6px;
+    overflow-x: auto;
+    padding-bottom: 2px;
+    scrollbar-width: none;
+}
+
+.clusterTabs::-webkit-scrollbar {
+    display: none;
+}
+
+.clusterTab {
+    padding: 6px 14px;
+    border-radius: 50px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    border: 1.5px solid var(--border);
+    background: white;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+    font-family: inherit;
+}
+
+.clusterTab:hover {
+    border-color: var(--corporate-blue);
+    color: var(--corporate-blue);
+    background: var(--beige);
+}
+
+.clusterTab.activeTab {
+    background: var(--corporate-blue);
+    color: white;
+    border-color: var(--corporate-blue);
+}
+
+/* ── Content ── */
+.content {
+    flex: 1;
+    overflow-y: auto;
+    padding: 1.5rem 2rem 2rem;
+}
+
+.content::-webkit-scrollbar {
+    width: 6px;
+}
+
+.content::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.content::-webkit-scrollbar-thumb {
+    background: var(--border);
+    border-radius: 3px;
+}
+
+.content::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+}
+
+/* ── Empty State ── */
+.emptyState {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem 2rem;
+    color: var(--text-muted);
+    gap: 1rem;
+}
+
+.emptyState p {
+    font-size: 1rem;
+}
+
+/* ── Grid ── */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1rem;
+}
+
+/* ── Card ── */
+.card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    display: flex;
+}
+
+.card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--soft-blue);
+}
+
+.cardAccent {
+    width: 4px;
+    flex-shrink: 0;
+    background: var(--border);
+    transition: background 0.3s ease;
+}
+
+.card:hover .cardAccent {
+    background: var(--corporate-blue);
+}
+
+/* Cluster accent colors */
+.card[data-cluster="Foundation"] .cardAccent { background: #0ea5e9; }
+.card[data-cluster="Magnesium"] .cardAccent { background: #22c55e; }
+.card[data-cluster="Adaptogen"] .cardAccent { background: #a855f7; }
+.card[data-cluster="Insulin"] .cardAccent { background: #f97316; }
+.card[data-cluster="Detox"] .cardAccent { background: #10b981; }
+.card[data-cluster="Sleep"] .cardAccent { background: #6366f1; }
+.card[data-cluster="Gut"] .cardAccent { background: #f59e0b; }
+.card[data-cluster="Energy"] .cardAccent { background: var(--primary-yellow); }
+.card[data-cluster="Brain"] .cardAccent { background: #ec4899; }
+.card[data-cluster="Mood"] .cardAccent { background: #8b5cf6; }
+.card[data-cluster="Inflammation"] .cardAccent { background: #ef4444; }
+.card[data-cluster="Structural"] .cardAccent { background: #78716c; }
+.card[data-cluster="Specific"] .cardAccent { background: #14b8a6; }
+
+.cardInner {
+    padding: 1.25rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+}
+
+.cardHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 0.75rem;
+}
+
+.productName {
+    font-size: 1rem;
+    font-weight: 650;
+    color: var(--text-main);
+    line-height: 1.35;
+}
+
+.clusterTag {
+    font-size: 0.7rem;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 50px;
+    background: var(--beige);
+    color: var(--corporate-blue);
+    white-space: nowrap;
+    letter-spacing: 0.01em;
+}
+
+/* Cluster-specific tag colors */
+.card[data-cluster="Foundation"] .clusterTag {
+    background: #e0f2fe;
+    color: #0369a1;
+}
+
+.card[data-cluster="Magnesium"] .clusterTag {
+    background: #dcfce7;
+    color: #15803d;
+}
+
+.card[data-cluster="Adaptogen"] .clusterTag {
+    background: #f3e8ff;
+    color: #7e22ce;
+}
+
+.card[data-cluster="Insulin"] .clusterTag {
+    background: #fff7ed;
+    color: #c2410c;
+}
+
+.card[data-cluster="Detox"] .clusterTag {
+    background: #ecfdf5;
+    color: #047857;
+}
+
+.card[data-cluster="Sleep"] .clusterTag {
+    background: #eef2ff;
+    color: #4338ca;
+}
+
+.card[data-cluster="Gut"] .clusterTag {
+    background: #fef3c7;
+    color: #b45309;
+}
+
+.card[data-cluster="Energy"] .clusterTag {
+    background: #fef9c3;
+    color: #a16207;
+}
+
+.card[data-cluster="Brain"] .clusterTag {
+    background: #fce7f3;
+    color: #be185d;
+}
+
+.card[data-cluster="Mood"] .clusterTag {
+    background: #ede9fe;
+    color: #6d28d9;
+}
+
+.card[data-cluster="Inflammation"] .clusterTag {
+    background: #fee2e2;
+    color: #b91c1c;
+}
+
+.card[data-cluster="Structural"] .clusterTag {
+    background: #f5f5f4;
+    color: #57534e;
+}
+
+.card[data-cluster="Specific"] .clusterTag {
+    background: #ccfbf1;
+    color: #0f766e;
+}
+
+/* ── Efficacy Section ── */
+.efficacySection {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.detailTitle {
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: #94a3b8;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+}
+
+.efficacyBars {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.efficacyItem {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.efficacyLabel {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.efficacyName {
+    font-size: 0.72rem;
+    font-weight: 500;
+    color: var(--text-muted);
+}
+
+.efficacyValue {
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: var(--text-main);
+}
+
+.efficacyTrack {
+    height: 5px;
+    background: #f1f5f9;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.efficacyFill {
+    height: 100%;
+    border-radius: 10px;
+    background: linear-gradient(90deg, var(--soft-blue), var(--corporate-blue));
+    transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.efficacyFill.highFill {
+    background: linear-gradient(90deg, var(--primary-yellow), var(--action-orange));
+}
+
+/* ── Blacklist Warning ── */
+.blacklistWarning {
+    margin-top: auto;
+    padding-top: 0.75rem;
+    border-top: 1px solid #fef2f2;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.75rem;
+    color: var(--error);
+    font-weight: 500;
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+    .modal {
+        width: 100%;
+        height: 100%;
+        border-radius: 0;
+    }
+
+    .header {
+        padding: 1rem 1.25rem;
+    }
+
+    .toolbar {
+        padding: 1rem 1.25rem;
+    }
+
+    .content {
+        padding: 1rem 1.25rem 1.5rem;
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    .clusterTabs {
+        padding-bottom: 4px;
+    }
+}

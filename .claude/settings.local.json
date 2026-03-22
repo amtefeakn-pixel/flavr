@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__Claude_Preview__preview_start",
+      "Bash(ls C:/Users/amtef/OneDrive/Desktop/Vitamins/node_modules/.bin/next*)",
+      "Bash(npx prisma:*)",
+      "Bash(rm -rf .next)",
+      "Bash(node -e \"const { PrismaClient } = require\\(''@prisma/client''\\); const p = new PrismaClient\\(\\); console.log\\(''PrismaClient works without args''\\); p.$disconnect\\(\\);\")"
+    ]
+  }
+}

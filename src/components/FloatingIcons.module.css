@@ -1,0 +1,42 @@
+.floatingContainer {
+    position: fixed;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    z-index: 90;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(5px);
+    padding: 15px 10px;
+    border-radius: 30px;
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--border);
+}
+
+.iconLink {
+    color: var(--text-main);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: white;
+    box-shadow: var(--shadow-sm);
+    transition: all 0.2s;
+}
+
+.iconLink:hover {
+    color: var(--primary-yellow);
+    box-shadow: var(--shadow-md);
+    transform: scale(1.1);
+}
+
+@media (max-width: 768px) {
+    .floatingContainer {
+        display: none;
+        /* Hide on mobile to avoid clutter */
+    }
+}

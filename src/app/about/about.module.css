@@ -1,0 +1,369 @@
+/* ═══════════════════════════════════════════
+   ABOUT PAGE — FLAVR Hakkımızda
+   ═══════════════════════════════════════════ */
+
+.page {
+    padding-top: 80px;
+    background: #ffffff;
+}
+
+/* ── Hero ── */
+.hero {
+    text-align: center;
+    padding: 4rem 2rem 3.5rem;
+    background: linear-gradient(180deg, var(--beige) 0%, #ffffff 100%);
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.heroLabel {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    color: var(--corporate-blue);
+    margin-bottom: 1rem;
+}
+
+.heroTitle {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 800;
+    color: var(--text-main);
+    letter-spacing: -0.03em;
+    line-height: 1.15;
+    margin-bottom: 1rem;
+}
+
+.heroSub {
+    font-size: 1.05rem;
+    color: var(--text-muted);
+    line-height: 1.7;
+    max-width: 560px;
+    margin: 0 auto;
+}
+
+/* ── Vizyon & Misyon ── */
+.vmSection {
+    padding: 4rem 2rem;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.vmGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+.vmCard {
+    padding: 2.5rem;
+    background: #ffffff;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 18px;
+    box-shadow: 0 4px 16px -4px rgba(0, 0, 0, 0.07);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.vmCard:hover {
+    box-shadow: 0 12px 36px -8px rgba(0, 0, 0, 0.13);
+    transform: translateY(-2px);
+}
+
+.vmIconWrap {
+    width: 52px;
+    height: 52px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.25rem;
+}
+
+.vmTitle {
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: var(--text-main);
+    letter-spacing: -0.01em;
+    margin-bottom: 0.85rem;
+}
+
+.vmText {
+    font-size: 0.92rem;
+    color: var(--text-muted);
+    line-height: 1.7;
+    margin-bottom: 1.25rem;
+}
+
+.vmList {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+.vmList li {
+    font-size: 0.85rem;
+    color: var(--text-main);
+    font-weight: 550;
+    padding-left: 1.5rem;
+    position: relative;
+    line-height: 1.5;
+}
+
+.vmList li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 7px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--corporate-blue);
+    opacity: 0.3;
+}
+
+/* ── Değerlerimiz ── */
+.valuesSection {
+    padding: 4rem 2rem;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.sectionTitle {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--text-main);
+    letter-spacing: -0.02em;
+    text-align: center;
+    margin-bottom: 0.35rem;
+}
+
+.sectionSub {
+    font-size: 0.88rem;
+    color: #94a3b8;
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+.valuesGrid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.25rem;
+}
+
+.valueCard {
+    padding: 1.75rem;
+    background: #f8fafc;
+    border: 1px solid #f1f5f9;
+    border-radius: 16px;
+    text-align: center;
+    transition: all 0.25s ease;
+}
+
+.valueCard:hover {
+    background: #ffffff;
+    border-color: #e2e8f0;
+    box-shadow: 0 4px 16px -4px rgba(0, 0, 0, 0.06);
+    transform: translateY(-2px);
+}
+
+.valueIcon {
+    color: var(--corporate-blue);
+    margin-bottom: 0.85rem;
+}
+
+.valueTitle {
+    font-size: 0.95rem;
+    font-weight: 750;
+    color: var(--text-main);
+    margin-bottom: 0.5rem;
+}
+
+.valueDesc {
+    font-size: 0.8rem;
+    color: #64748b;
+    line-height: 1.6;
+}
+
+/* ── Bilim Ekibi ── */
+.teamSection {
+    padding: 4rem 2rem 5rem;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.teamGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+}
+
+.teamCard {
+    padding: 2rem;
+    background: #ffffff;
+    border: 1px solid #f1f5f9;
+    border-radius: 16px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.teamCard:hover {
+    border-color: var(--soft-blue);
+    box-shadow: 0 8px 24px -8px rgba(32, 112, 160, 0.12);
+}
+
+.teamAvatar {
+    width: 64px;
+    height: 64px;
+    border-radius: 16px;
+    background: linear-gradient(135deg, var(--corporate-blue), var(--soft-blue));
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: 800;
+    margin: 0 auto 1.15rem;
+}
+
+.teamName {
+    font-size: 1.05rem;
+    font-weight: 750;
+    color: var(--text-main);
+    margin-bottom: 0.25rem;
+}
+
+.teamRole {
+    font-size: 0.82rem;
+    color: #64748b;
+    margin-bottom: 0.85rem;
+}
+
+.teamLink {
+    font-size: 0.8rem;
+    font-weight: 650;
+    color: var(--corporate-blue);
+}
+
+/* ── Modal ── */
+.overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(8px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    padding: 2rem;
+}
+
+.modal {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 2.5rem;
+    max-width: 460px;
+    width: 100%;
+    position: relative;
+    box-shadow: 0 25px 60px -12px rgba(0, 0, 0, 0.2);
+}
+
+.closeBtn {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    border: 1px solid #e2e8f0;
+    background: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: #64748b;
+    transition: all 0.2s ease;
+}
+
+.closeBtn:hover {
+    background: #fee2e2;
+    border-color: #fca5a5;
+    color: #dc2626;
+}
+
+.modalAvatar {
+    width: 72px;
+    height: 72px;
+    border-radius: 18px;
+    background: linear-gradient(135deg, var(--corporate-blue), var(--soft-blue));
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.75rem;
+    font-weight: 800;
+    margin-bottom: 1.25rem;
+}
+
+.modalName {
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: var(--text-main);
+    margin-bottom: 0.25rem;
+}
+
+.modalRole {
+    font-size: 0.88rem;
+    font-weight: 650;
+    color: var(--corporate-blue);
+    margin-bottom: 1.25rem;
+}
+
+.modalBio {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    line-height: 1.7;
+}
+
+/* ═══════════════════════════════════════════
+   RESPONSIVE
+   ═══════════════════════════════════════════ */
+
+@media (max-width: 900px) {
+    .vmGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .valuesGrid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .teamGrid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 640px) {
+    .hero {
+        padding: 3rem 1.25rem 2.5rem;
+    }
+
+    .vmSection,
+    .valuesSection,
+    .teamSection {
+        padding-left: 1.25rem;
+        padding-right: 1.25rem;
+    }
+
+    .vmCard {
+        padding: 1.75rem;
+    }
+
+    .valuesGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .teamGrid {
+        grid-template-columns: 1fr;
+    }
+}

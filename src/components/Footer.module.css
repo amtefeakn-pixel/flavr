@@ -1,0 +1,116 @@
+.footer {
+    background: var(--corporate-blue);
+    padding: 80px 0 20px;
+    margin-top: auto;
+    color: white;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1.5fr;
+    gap: 4rem;
+    margin-bottom: 4rem;
+}
+
+.logo {
+    font-size: 1.8rem;
+    color: var(--primary-yellow);
+    margin-bottom: 1rem;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+.logoImage {
+    max-height: 80px;
+    width: auto;
+}
+
+.mission {
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.social {
+    display: flex;
+    gap: 1rem;
+}
+
+.social a {
+    color: white;
+    transition: color 0.2s;
+}
+
+.social a:hover {
+    color: var(--primary-yellow);
+}
+
+.links h4,
+.newsletter h4 {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+    color: white;
+    font-weight: 700;
+}
+
+.links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.links a {
+    color: rgba(255, 255, 255, 0.8);
+    transition: color 0.2s;
+}
+
+.links a:hover {
+    color: var(--primary-yellow);
+}
+
+.form {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.form input {
+    flex: 1;
+    padding: 12px 15px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: var(--radius);
+    font-family: inherit;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    transition: border-color 0.2s;
+}
+
+.form input:focus {
+    border-color: var(--primary-yellow);
+    outline: none;
+}
+
+.form input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 20px;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.9rem;
+}
+
+@media (max-width: 900px) {
+    .grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+}
