@@ -1,3 +1,4 @@
+"use client";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Link from "next/link";
@@ -10,7 +11,7 @@ export default function Cart() {
             <div className="container section">
                 <h1 style={{ color: "var(--primary-green)", fontSize: "2.5rem", marginBottom: "2rem" }}>Sepetim</h1>
 
-                <div style={{ display: "grid", gridTemplateColumns: "2fr 1fr", gap: "2rem" }}>
+                <div style={{ display: "grid", gridTemplateColumns: "2fr 1fr", gap: "2rem" }} className="cart-grid">
                     {/* Cart Items Placeholder */}
                     <div style={{ background: "white", padding: "2rem", borderRadius: "var(--radius)", border: "1px solid var(--border)" }}>
                         <div style={{ textAlign: "center", padding: "3rem 0", color: "var(--text-muted)" }}>
@@ -42,6 +43,13 @@ export default function Cart() {
                     </div>
                 </div>
             </div>
+            <style jsx>{`
+              @media (max-width: 768px) {
+                .cart-grid {
+                  grid-template-columns: 1fr !important;
+                }
+              }
+            `}</style>
             <Footer />
         </main>
     );

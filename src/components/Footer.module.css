@@ -103,14 +103,46 @@
 }
 
 @media (max-width: 900px) {
+    .footer {
+        padding: 50px 0 20px;
+    }
+
     .grid {
         grid-template-columns: 1fr 1fr;
         gap: 2rem;
+        margin-bottom: 2.5rem;
     }
 }
 
 @media (max-width: 600px) {
+    .footer {
+        padding: 40px 0 16px;
+    }
+
     .grid {
         grid-template-columns: 1fr;
+        gap: 1.5rem;
+        margin-bottom: 2rem;
+    }
+
+    .logoImage {
+        max-height: 50px;
+    }
+
+    .form {
+        flex-direction: column;
+    }
+
+    .form input {
+        width: 100%;
+    }
+
+    .social {
+        justify-content: flex-start;
+    }
+
+    .bottom {
+        font-size: 0.8rem;
+        padding-top: 16px;
     }
 }

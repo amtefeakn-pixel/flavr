@@ -203,19 +203,30 @@
     color: var(--text-main);
 }
 
-@media (max-width: 768px) {
+@media (max-width: 900px) {
+    .header {
+        padding: 0.35rem 0;
+    }
+
+    .logoImage {
+        max-height: 38px;
+    }
+
     .nav {
         position: fixed;
-        top: 70px;
+        top: 60px;
         left: 0;
         width: 100%;
-        height: calc(100vh - 70px);
+        height: calc(100vh - 60px);
         background: var(--background-white);
         flex-direction: column;
-        padding: 2rem;
+        padding: 1.5rem;
         transform: translateX(100%);
         transition: transform 0.3s ease;
         align-items: flex-start;
+        overflow-y: auto;
+        z-index: 200;
+        gap: 0.5rem;
     }
 
     .nav.open {
@@ -226,13 +237,56 @@
         display: block;
     }
 
+    .navItem {
+        width: 100%;
+        padding: 0.5rem 0;
+    }
+
+    .link {
+        font-size: 1.1rem;
+        padding: 0.5rem 0;
+        width: 100%;
+    }
+
     .megaMenu {
         position: static;
         transform: none;
         box-shadow: none;
         border: none;
         background: transparent;
-        padding: 0;
+        padding: 0.5rem 0 0 0;
         margin-left: 1rem;
+    }
+
+    .quizBtn {
+        width: 100%;
+        text-align: center;
+        margin-top: 0.5rem;
+        padding: 12px 20px;
+    }
+
+    .actions {
+        gap: 0.5rem;
+    }
+
+    .iconBtn {
+        padding: 6px;
+    }
+
+    .quizProgress {
+        font-size: 0.75rem;
+        padding: 4px 8px;
+    }
+}
+
+@media (max-width: 480px) {
+    .logoImage {
+        max-height: 32px;
+    }
+
+    .badge {
+        width: 16px;
+        height: 16px;
+        font-size: 0.6rem;
     }
 }

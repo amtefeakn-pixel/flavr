@@ -18,7 +18,7 @@ export default function Blog() {
             <div className="container section">
                 <h1 style={{ color: "var(--text-main)", fontSize: "2.5rem", marginBottom: "3rem", fontWeight: "800" }}>Sağlıklı Yaşam Rehberleri</h1>
 
-                <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(300px, 1fr))", gap: "2rem" }}>
+                <div className="blog-grid" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))", gap: "1.25rem" }}>
                     {blogPosts.map((post) => (
                         <div key={post.id} style={{ background: "var(--beige)", padding: "2rem", borderRadius: "var(--radius)", display: "flex", flexDirection: "column", boxShadow: "var(--shadow-md)", transition: "transform 0.2s", border: "1px solid var(--border)" }} className="blog-card">
                             <span style={{ color: "var(--text-main)", backgroundColor: "var(--primary-yellow)", padding: "4px 12px", borderRadius: "20px", width: "fit-content", fontWeight: "700", marginBottom: "1rem", fontSize: "0.8rem", boxShadow: "var(--shadow-sm)" }}>{post.category}</span>
@@ -39,6 +39,11 @@ export default function Blog() {
             border-bottom-color: transparent !important;
             padding: 2px 5px;
             border-radius: 4px;
+          }
+          @media (max-width: 768px) {
+            .blog-card {
+              padding: 1.5rem !important;
+            }
           }
         `}</style>
             </div>

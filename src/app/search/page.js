@@ -14,25 +14,27 @@ export default function Search() {
                         placeholder="Vitamin, mineral veya sağlık hedefi arayın..."
                         style={{
                             width: "100%",
-                            padding: "20px",
+                            padding: "16px 80px 16px 20px",
                             borderRadius: "50px",
                             border: "2px solid var(--border)",
-                            fontSize: "1.2rem",
+                            fontSize: "1rem",
                             outline: "none",
-                            boxShadow: "var(--shadow-sm)"
+                            boxShadow: "var(--shadow-sm)",
+                            boxSizing: "border-box"
                         }}
                     />
                     <button
                         className="btn"
                         style={{
                             position: "absolute",
-                            right: "10px",
+                            right: "8px",
                             top: "50%",
                             transform: "translateY(-50%)",
-                            backgroundColor: "var(--primary-green)",
+                            backgroundColor: "var(--corporate-blue)",
                             color: "white",
-                            padding: "10px 25px",
-                            borderRadius: "40px"
+                            padding: "8px 20px",
+                            borderRadius: "40px",
+                            fontSize: "0.9rem"
                         }}
                     >
                         Ara
