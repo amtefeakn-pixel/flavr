@@ -24,7 +24,7 @@ export default function Hero() {
     const controls = useAnimation();
 
     useEffect(() => {
-        const checkMobile = () => setIsMobile(window.innerWidth <= 600);
+        const checkMobile = () => setIsMobile(window.innerWidth <= 900);
         checkMobile();
         window.addEventListener("resize", checkMobile);
         return () => window.removeEventListener("resize", checkMobile);
