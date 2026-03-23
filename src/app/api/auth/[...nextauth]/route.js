@@ -6,6 +6,7 @@ import prisma from "@/lib/db"
 const ADMIN_EMAILS = [
     "flavr@flavrtr.info",
     "amtefeakin@gmail.com",
+    "mertbt05@gmail.com",
 ]
 
 const handler = NextAuth({
