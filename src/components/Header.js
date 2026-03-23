@@ -1,7 +1,8 @@
 "use client";
 import Link from "next/link";
 import Image from "next/image";
-import { ShoppingCart, Search, User, Menu, X, ChevronDown, Zap, Moon, Shield } from "lucide-react";
+import { ShoppingCart, Search, User, Menu, X, ChevronDown, Zap, Moon as MoonIcon, Shield } from "lucide-react";
+import ThemeToggle from "./ThemeToggle";
 import { useState, useEffect } from "react";
 import { useSession } from "next-auth/react";
 import styles from "./Header.module.css";
@@ -56,7 +57,7 @@ export default function Header() {
                                                 <span>Enerji</span>
                                             </div>
                                             <div className={styles.megaMenuItem}>
-                                                <Moon size={20} className={styles.menuIcon} />
+                                                <MoonIcon size={20} className={styles.menuIcon} />
                                                 <span>Uyku</span>
                                             </div>
                                             <div className={styles.megaMenuItem}>
@@ -89,6 +90,7 @@ export default function Header() {
                     )}
 
                     <div className={styles.actions}>
+                        <ThemeToggle />
                         {!isQuizPage && (
                             <>
                                 <Link href="/search" className={styles.iconBtn} aria-label="Search">

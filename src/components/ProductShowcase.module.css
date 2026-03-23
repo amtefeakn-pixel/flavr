@@ -58,7 +58,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: rgba(255, 255, 255, 0.5);
+    background: var(--background-white);
     position: relative;
     overflow: hidden;
 }
@@ -125,7 +125,7 @@
     font-weight: 800;
     font-size: 1.2rem;
     color: var(--text-main);
-    background: white;
+    background: var(--card-bg);
     padding: 6px 12px;
     border-radius: 8px;
     border: 2px solid var(--corporate-blue);
