@@ -4,7 +4,22 @@ import pg from 'pg'
 
 const prismaClientSingleton = () => {
     const connectionString = process.env.DIRECT_DATABASE_URL || process.env.DATABASE_URL
-    const pool = new pg.Pool({ connectionString })
+
+    if (!connectionString) {
+        throw new Error("DATABASE_URL is not set. Check your .env file or Vercel environment variables.")
+    }
+
+    const pool = new pg.Pool({
+        connectionString,
+        max: 5,
+        idleTimeoutMillis: 30000,
+        connectionTimeoutMillis: 10000,
+    })
+
+    pool.on('error', (err) => {
+        console.error('PostgreSQL pool error:', err.message)
+    })
+
     const adapter = new PrismaPg(pool)
     return new PrismaClient({ adapter })
 }

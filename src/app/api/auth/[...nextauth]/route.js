@@ -3,6 +3,11 @@ import CredentialsProvider from "next-auth/providers/credentials"
 import bcrypt from "bcryptjs"
 import prisma from "@/lib/db"
 
+const ADMIN_EMAILS = [
+    "flavr@flavrtr.info",
+    "amtefeakin@gmail.com",
+]
+
 const handler = NextAuth({
     providers: [
         CredentialsProvider({
@@ -35,11 +40,15 @@ const handler = NextAuth({
                     return null
                 }
 
+                const role = ADMIN_EMAILS.includes(user.email.toLowerCase())
+                    ? "admin"
+                    : (user.role || "user")
+
                 return {
                     id: user.id,
                     name: user.name,
                     email: user.email,
-                    role: user.role,
+                    role,
                 }
             }
         })
