@@ -1,7 +1,7 @@
 "use client";
 
 import { useSession, signOut } from "next-auth/react";
-import { useState } from "react";
+import { useState, useEffect, useCallback } from "react";
 import {
     LayoutDashboard, Package, ShoppingCart, BarChart2,
     Users, Settings, Search, Bell, LogOut, Edit2, Trash2,
@@ -511,21 +511,94 @@ function QuizTab() {
 }
 
 function UsersTab() {
+    const [users, setUsers] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
+    const [search, setSearch] = useState("");
+
+    const fetchUsers = useCallback(async () => {
+        try {
+            setLoading(true);
+            const res = await fetch("/api/admin/users");
+            if (!res.ok) throw new Error("Kullanıcılar yüklenemedi");
+            const data = await res.json();
+            setUsers(data);
+            setError(null);
+        } catch (err) {
+            setError(err.message);
+        } finally {
+            setLoading(false);
+        }
+    }, []);
+
+    useEffect(() => { fetchUsers(); }, [fetchUsers]);
+
+    const deleteUser = async (userId, name) => {
+        if (!confirm(`"${name}" kullanıcısını silmek istediğinize emin misiniz?`)) return;
+        try {
+            const res = await fetch("/api/admin/users", {
+                method: "DELETE",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ userId }),
+            });
+            if (!res.ok) throw new Error("Silinemedi");
+            setUsers(prev => prev.filter(u => u.id !== userId));
+        } catch (err) {
+            alert("Hata: " + err.message);
+        }
+    };
+
+    const toggleRole = async (userId, currentRole) => {
+        const newRole = currentRole === "admin" ? "user" : "admin";
+        try {
+            const res = await fetch("/api/admin/users", {
+                method: "PATCH",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ userId, role: newRole }),
+            });
+            if (!res.ok) throw new Error("Güncellenemedi");
+            setUsers(prev => prev.map(u => u.id === userId ? { ...u, role: newRole } : u));
+        } catch (err) {
+            alert("Hata: " + err.message);
+        }
+    };
+
+    const filtered = users.filter(u =>
+        u.name.toLowerCase().includes(search.toLowerCase()) ||
+        u.email.toLowerCase().includes(search.toLowerCase())
+    );
+
+    if (loading) return <div className={styles.tabContent}><div className={styles.emptyState}>Yükleniyor...</div></div>;
+    if (error) return <div className={styles.tabContent}><div className={styles.emptyState}>Hata: {error} <button onClick={fetchUsers} className={styles.filterBtn}>Tekrar Dene</button></div></div>;
+
     return (
         <div className={styles.tabContent}>
+            <div className={styles.tableToolbar}>
+                <div className={styles.searchBox}>
+                    <Search size={16} />
+                    <input
+                        value={search}
+                        onChange={e => setSearch(e.target.value)}
+                        placeholder="İsim veya e-posta ara..."
+                        className={styles.searchInput}
+                    />
+                </div>
+                <span className={styles.sectionSub}>{users.length} kayıtlı kullanıcı</span>
+            </div>
+
             <div className={styles.tableCard}>
                 <table className={styles.table}>
                     <thead>
                         <tr>
                             <th>Kullanıcı</th>
                             <th>Kayıt Tarihi</th>
-                            <th>Siparişler</th>
-                            <th>Abonelik</th>
+                            <th>Quiz</th>
                             <th>Rol</th>
+                            <th>İşlem</th>
                         </tr>
                     </thead>
                     <tbody>
-                        {MOCK_USERS.map(u => (
+                        {filtered.map(u => (
                             <tr key={u.id}>
                                 <td>
                                     <div className={styles.customerCell}>
@@ -537,17 +610,30 @@ function UsersTab() {
                                     </div>
                                 </td>
                                 <td className={styles.muted}>{u.joined}</td>
-                                <td className={styles.bold}>{u.orders}</td>
+                                <td className={styles.bold}>{u.quizCount}</td>
                                 <td>
-                                    <span className={u.subscription === "Aktif" ? styles.badgeGreen : styles.badgeGray}>
-                                        {u.subscription}
-                                    </span>
+                                    <button
+                                        className={u.role === "admin" ? styles.badgeGreen : styles.badgeBlue}
+                                        onClick={() => toggleRole(u.id, u.role)}
+                                        style={{ cursor: "pointer", border: "none" }}
+                                    >
+                                        {u.role}
+                                    </button>
                                 </td>
-                                <td><span className={styles.badgeBlue}>{u.role}</span></td>
+                                <td>
+                                    <button className={styles.deleteBtn} onClick={() => deleteUser(u.id, u.name)}>
+                                        <Trash2 size={14} />
+                                    </button>
+                                </td>
                             </tr>
                         ))}
                     </tbody>
                 </table>
+                {filtered.length === 0 && (
+                    <div className={styles.emptyState}>
+                        {users.length === 0 ? "Henüz kayıtlı kullanıcı yok." : "Sonuç bulunamadı."}
+                    </div>
+                )}
             </div>
         </div>
     );
