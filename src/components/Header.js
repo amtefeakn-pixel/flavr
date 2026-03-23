@@ -1,18 +1,16 @@
 "use client";
 import Link from "next/link";
 import Image from "next/image";
-import { ShoppingCart, Search, User, Menu, X, ChevronDown, Zap, Moon as MoonIcon, Shield } from "lucide-react";
+import { ShoppingCart, Search, User, Menu, X } from "lucide-react";
 import ThemeToggle from "./ThemeToggle";
 import { useState, useEffect } from "react";
 import { useSession } from "next-auth/react";
 import styles from "./Header.module.css";
-import { motion, AnimatePresence } from "framer-motion";
 import { usePathname } from "next/navigation";
 
 export default function Header() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [mounted, setMounted] = useState(false);
-    const [isShopHovered, setIsShopHovered] = useState(false);
     const pathname = usePathname();
     const isQuizPage = pathname?.startsWith("/quiz");
     const { data: session, status } = useSession();
@@ -34,40 +32,9 @@ export default function Header() {
                     {/* Desktop Nav - Hidden on Quiz Page */}
                     {!isQuizPage && (
                         <nav className={`${styles.nav} ${isMenuOpen ? styles.open : ""}`}>
-                            <div
-                                className={styles.navItem}
-                                onMouseEnter={() => setIsShopHovered(true)}
-                                onMouseLeave={() => setIsShopHovered(false)}
-                            >
-                                <Link href="/shop" className={styles.link} onClick={() => setIsMenuOpen(false)}>
-                                    Mağaza <ChevronDown size={16} />
-                                </Link>
-
-                                <AnimatePresence>
-                                    {isShopHovered && (
-                                        <motion.div
-                                            className={styles.megaMenu}
-                                            initial={{ opacity: 0, y: 10 }}
-                                            animate={{ opacity: 1, y: 0 }}
-                                            exit={{ opacity: 0, y: 10 }}
-                                            transition={{ duration: 0.2 }}
-                                        >
-                                            <div className={styles.megaMenuItem}>
-                                                <Zap size={20} className={styles.menuIcon} />
-                                                <span>Enerji</span>
-                                            </div>
-                                            <div className={styles.megaMenuItem}>
-                                                <MoonIcon size={20} className={styles.menuIcon} />
-                                                <span>Uyku</span>
-                                            </div>
-                                            <div className={styles.megaMenuItem}>
-                                                <Shield size={20} className={styles.menuIcon} />
-                                                <span>Bağışıklık</span>
-                                            </div>
-                                        </motion.div>
-                                    )}
-                                </AnimatePresence>
-                            </div>
+                            <Link href="/shop" className={styles.link} onClick={() => setIsMenuOpen(false)}>
+                                Mağaza
+                            </Link>
 
                             <Link href="/catalog" className={styles.link} onClick={() => setIsMenuOpen(false)}>
                                 Katalog

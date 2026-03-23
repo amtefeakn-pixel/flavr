@@ -23,9 +23,30 @@
 
 .highlight {
   color: var(--primary-yellow);
-  text-shadow: 0 0 30px rgba(255, 195, 0, 0.3);
+  text-shadow:
+    0 0 10px rgba(255, 195, 0, 0.6),
+    0 0 30px rgba(255, 195, 0, 0.4),
+    0 0 60px rgba(255, 195, 0, 0.2),
+    0 0 100px rgba(255, 195, 0, 0.1);
   position: relative;
   display: inline-block;
+  animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    text-shadow:
+      0 0 10px rgba(255, 195, 0, 0.6),
+      0 0 30px rgba(255, 195, 0, 0.4),
+      0 0 60px rgba(255, 195, 0, 0.2);
+  }
+  to {
+    text-shadow:
+      0 0 15px rgba(255, 195, 0, 0.8),
+      0 0 40px rgba(255, 195, 0, 0.6),
+      0 0 80px rgba(255, 195, 0, 0.3),
+      0 0 120px rgba(255, 195, 0, 0.15);
+  }
 }
 
 .subtitle {
