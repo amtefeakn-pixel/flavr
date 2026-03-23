@@ -23,6 +23,7 @@
 .logoImage {
     max-height: 80px;
     width: auto;
+    mix-blend-mode: screen;
 }
 
 .mission {
@@ -94,12 +95,36 @@
     color: rgba(255, 255, 255, 0.5);
 }
 
-.bottom {
+.trust {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2.5rem;
+    padding: 1.5rem 0;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
-    padding-top: 20px;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+}
+
+.trustItem {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+.trustItem svg {
+    color: var(--primary-yellow);
+    flex-shrink: 0;
+}
+
+.bottom {
     text-align: center;
-    color: rgba(255, 255, 255, 0.6);
-    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.85rem;
+    padding-bottom: 4px;
 }
 
 @media (max-width: 900px) {

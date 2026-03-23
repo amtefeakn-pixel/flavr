@@ -1,38 +1,38 @@
 :root {
-  /* Core Brand Palette */
-  --primary-yellow: #FFC300;
-  --primary-yellow-dark: #E6B000;
+  /* Core Brand Palette — Pastel Pink & Yeşil */
+  --primary-yellow: #fea6a6;
+  --primary-yellow-dark: #f07878;
 
-  --corporate-blue: #2070A0;
-  --soft-blue: #9BC5E7;
+  --corporate-blue: #2F855A;
+  --soft-blue: #A8D5BA;
 
-  --action-orange: #FF7A00;
-  --action-orange-dark: #CC6200;
+  --action-orange: #fea6a6;
+  --action-orange-dark: #f07878;
 
-  --beige: #E5F0F7;
-  --background-white: #F5F8FC;
-  --icy-blue: #E5F0F7;
+  --beige: #eef7f2;
+  --background-white: #f4faf7;
+  --icy-blue: #eef7f2;
 
   /* Supporting Colors */
-  --text-main: #333333;
-  --text-muted: #555555;
-  --border: #D0E0F0;
-  --success: #2C9975;
-  --error: #E63946;
+  --text-main: #1a3328;
+  --text-muted: #4a7060;
+  --border: #c8e8d5;
+  --success: #2F855A;
+  --error: #e85555;
 
   /* Surfaces */
   --card-bg: #ffffff;
   --header-bg: var(--background-white);
-  --footer-bg: var(--corporate-blue);
+  --footer-bg: #1a4a35;
   --input-bg: #ffffff;
   --overlay-bg: rgba(0, 0, 0, 0.5);
 
   /* Layout */
   --radius: 12px;
-  --shadow-sm: 0 2px 4px rgba(51, 51, 51, 0.08);
-  --shadow-md: 0 8px 16px -2px rgba(51, 51, 51, 0.12);
-  --shadow-lg: 0 16px 32px -4px rgba(51, 51, 51, 0.15);
-  --shadow-xl: 0 24px 48px -8px rgba(51, 51, 51, 0.2);
+  --shadow-sm: 0 2px 4px rgba(47, 133, 90, 0.1);
+  --shadow-md: 0 8px 16px -2px rgba(47, 133, 90, 0.15);
+  --shadow-lg: 0 16px 32px -4px rgba(47, 133, 90, 0.18);
+  --shadow-xl: 0 24px 48px -8px rgba(47, 133, 90, 0.22);
 
   /* Fonts */
   --font-heading: var(--font-outfit);
@@ -40,22 +40,22 @@
 
 /* ── Dark Mode ── */
 [data-theme="dark"] {
-  --background-white: #0f1419;
-  --beige: #1a2332;
-  --icy-blue: #1a2332;
+  --background-white: #0d1a13;
+  --beige: #152b1e;
+  --icy-blue: #152b1e;
 
-  --text-main: #e8eaed;
-  --text-muted: #9aa0a6;
-  --border: #2d3748;
+  --text-main: #e0f0e8;
+  --text-muted: #7aa88a;
+  --border: #1e4030;
 
-  --card-bg: #1a2332;
-  --header-bg: #0f1419;
-  --input-bg: #1a2332;
+  --card-bg: #152b1e;
+  --header-bg: #0d1a13;
+  --input-bg: #152b1e;
   --overlay-bg: rgba(0, 0, 0, 0.7);
 
-  --corporate-blue: #4da6d8;
-  --soft-blue: #2d5f8a;
-  --footer-bg: #0a0f14;
+  --corporate-blue: #A8D5BA;
+  --soft-blue: #5aaa7a;
+  --footer-bg: #080f0b;
 
   --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.3);
   --shadow-md: 0 8px 16px -2px rgba(0, 0, 0, 0.4);
