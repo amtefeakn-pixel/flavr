@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import styles from "./Footer.module.css";
-import { Facebook, Instagram, Twitter } from "lucide-react";
+import { Facebook, Instagram, Twitter, ShieldCheck, Truck, RotateCcw, Lock } from "lucide-react";
 
 export default function Footer() {
     return (
@@ -45,6 +45,25 @@ export default function Footer() {
                             <input type="email" placeholder="E-posta adresiniz" required />
                             <button type="submit" className="btn btn-primary">Abone Ol</button>
                         </form>
+                    </div>
+                </div>
+
+                        <div className={styles.trust}>
+                    <div className={styles.trustItem}>
+                        <ShieldCheck size={20} />
+                        <span>Güvenli Alışveriş</span>
+                    </div>
+                    <div className={styles.trustItem}>
+                        <Lock size={20} />
+                        <span>SSL Şifreli</span>
+                    </div>
+                    <div className={styles.trustItem}>
+                        <Truck size={20} />
+                        <span>Hızlı Teslimat</span>
+                    </div>
+                    <div className={styles.trustItem}>
+                        <RotateCcw size={20} />
+                        <span>Kolay İade</span>
                     </div>
                 </div>
 

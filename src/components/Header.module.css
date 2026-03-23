@@ -28,6 +28,7 @@
 .logoImage {
     max-height: 50px;
     width: auto;
+    mix-blend-mode: multiply;
 }
 
 .quizLogo {
