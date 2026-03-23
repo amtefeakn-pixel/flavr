@@ -1,0 +1,17 @@
+.toggle {
+    background: var(--beige);
+    color: var(--text-main);
+    padding: 8px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    border: 1px solid var(--border);
+}
+
+.toggle:hover {
+    background: var(--primary-yellow);
+    color: var(--text-main);
+    transform: scale(1.1);
+}

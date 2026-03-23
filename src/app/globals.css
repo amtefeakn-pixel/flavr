@@ -1,40 +1,66 @@
 :root {
   /* Core Brand Palette */
   --primary-yellow: #FFC300;
-  /* Bright Mustard Yellow - Action/Energy */
   --primary-yellow-dark: #E6B000;
 
   --corporate-blue: #2070A0;
-  /* Trust/Science */
   --soft-blue: #9BC5E7;
 
   --action-orange: #FF7A00;
-  /* Secondary Action - Sepete Ekle */
   --action-orange-dark: #CC6200;
 
   --beige: #E5F0F7;
-  /* Icy Beige Blue - Secondary Background */
   --background-white: #F5F8FC;
-  /* Light Mist Blue - Base Background */
+  --icy-blue: #E5F0F7;
 
   /* Supporting Colors */
   --text-main: #333333;
-  /* Dark Anthracite */
   --text-muted: #555555;
   --border: #D0E0F0;
   --success: #2C9975;
   --error: #E63946;
 
+  /* Surfaces */
+  --card-bg: #ffffff;
+  --header-bg: var(--background-white);
+  --footer-bg: var(--corporate-blue);
+  --input-bg: #ffffff;
+  --overlay-bg: rgba(0, 0, 0, 0.5);
+
   /* Layout */
   --radius: 12px;
-  /* Heavy, soft diffuse shadows for depth */
   --shadow-sm: 0 2px 4px rgba(51, 51, 51, 0.08);
   --shadow-md: 0 8px 16px -2px rgba(51, 51, 51, 0.12);
   --shadow-lg: 0 16px 32px -4px rgba(51, 51, 51, 0.15);
+  --shadow-xl: 0 24px 48px -8px rgba(51, 51, 51, 0.2);
 
   /* Fonts */
   --font-heading: var(--font-outfit);
-  /* Assuming Outfit is set in layout.js */
+}
+
+/* ── Dark Mode ── */
+[data-theme="dark"] {
+  --background-white: #0f1419;
+  --beige: #1a2332;
+  --icy-blue: #1a2332;
+
+  --text-main: #e8eaed;
+  --text-muted: #9aa0a6;
+  --border: #2d3748;
+
+  --card-bg: #1a2332;
+  --header-bg: #0f1419;
+  --input-bg: #1a2332;
+  --overlay-bg: rgba(0, 0, 0, 0.7);
+
+  --corporate-blue: #4da6d8;
+  --soft-blue: #2d5f8a;
+  --footer-bg: #0a0f14;
+
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 8px 16px -2px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 16px 32px -4px rgba(0, 0, 0, 0.5);
+  --shadow-xl: 0 24px 48px -8px rgba(0, 0, 0, 0.6);
 }
 
 * {
@@ -118,6 +144,11 @@ button {
   color: white;
 }
 
+/* Dark mode transition */
+body, .btn, a {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
 .section {
   padding: 80px 0;
 }
@@ -181,7 +212,8 @@ button {
 }
 
 /* ── Global Mobile Optimization ── */
-html {
+html, body {
+  overflow-x: hidden;
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
 }

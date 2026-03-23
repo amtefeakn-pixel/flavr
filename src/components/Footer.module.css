@@ -1,5 +1,5 @@
 .footer {
-    background: var(--corporate-blue);
+    background: var(--footer-bg);
     padding: 80px 0 20px;
     margin-top: auto;
     color: white;
@@ -82,7 +82,7 @@
     font-family: inherit;
     background: rgba(255, 255, 255, 0.1);
     color: white;
-    transition: border-color 0.2s;
+    transition: border-color 0.2s, background 0.2s;
 }
 
 .form input:focus {
