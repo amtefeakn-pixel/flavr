@@ -1,0 +1,13 @@
+User-agent: *
+Allow: /
+Disallow: /admin
+Disallow: /admin/*
+Disallow: /dashboard
+Disallow: /dashboard/*
+Disallow: /account
+Disallow: /account/*
+Disallow: /api/*
+Disallow: /signin
+Disallow: /register
+
+Sitemap: https://flavr.com.tr/sitemap.xml
