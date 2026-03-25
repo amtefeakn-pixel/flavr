@@ -1,5 +1,7 @@
 import { getServerSession } from "next-auth"
 import prisma from "@/lib/db"
+import { checkRateLimit } from "@/lib/rate-limit"
+import { logAdminAction } from "@/lib/audit"
 
 const ADMIN_EMAILS = [
     "flavr@flavrtr.info",
@@ -7,10 +9,20 @@ const ADMIN_EMAILS = [
     "mertbt05@gmail.com",
 ]
 
-export async function GET(req) {
+async function requireAdmin(req) {
     const session = await getServerSession()
-
     if (!session?.user?.email || !ADMIN_EMAILS.includes(session.user.email.toLowerCase())) {
+        return null
+    }
+    return session
+}
+
+export async function GET(req) {
+    const limited = checkRateLimit(req, { limit: 30, windowMs: 60000 })
+    if (limited) return limited
+
+    const session = await requireAdmin(req)
+    if (!session) {
         return Response.json({ error: "Unauthorized" }, { status: 403 })
     }
 
@@ -46,9 +58,11 @@ export async function GET(req) {
 }
 
 export async function DELETE(req) {
-    const session = await getServerSession()
+    const limited = checkRateLimit(req, { limit: 10, windowMs: 60000 })
+    if (limited) return limited
 
-    if (!session?.user?.email || !ADMIN_EMAILS.includes(session.user.email.toLowerCase())) {
+    const session = await requireAdmin(req)
+    if (!session) {
         return Response.json({ error: "Unauthorized" }, { status: 403 })
     }
 
@@ -59,8 +73,19 @@ export async function DELETE(req) {
             return Response.json({ error: "userId required" }, { status: 400 })
         }
 
+        // Prevent self-deletion
+        if (userId === session.user.id) {
+            return Response.json({ error: "Kendinizi silemezsiniz" }, { status: 400 })
+        }
+
         await prisma.quizResult.deleteMany({ where: { userId } })
         await prisma.user.delete({ where: { id: userId } })
+
+        logAdminAction({
+            action: "user.delete",
+            adminEmail: session.user.email,
+            targetId: userId,
+        })
 
         return Response.json({ success: true })
     } catch (error) {
@@ -70,23 +95,32 @@ export async function DELETE(req) {
 }
 
 export async function PATCH(req) {
-    const session = await getServerSession()
+    const limited = checkRateLimit(req, { limit: 20, windowMs: 60000 })
+    if (limited) return limited
 
-    if (!session?.user?.email || !ADMIN_EMAILS.includes(session.user.email.toLowerCase())) {
+    const session = await requireAdmin(req)
+    if (!session) {
         return Response.json({ error: "Unauthorized" }, { status: 403 })
     }
 
     try {
         const { userId, role } = await req.json()
 
-        if (!userId || !role) {
-            return Response.json({ error: "userId and role required" }, { status: 400 })
+        if (!userId || !["user", "admin"].includes(role)) {
+            return Response.json({ error: "Geçersiz parametreler" }, { status: 400 })
         }
 
         const updated = await prisma.user.update({
             where: { id: userId },
             data: { role },
             select: { id: true, role: true },
+        })
+
+        logAdminAction({
+            action: "role.change",
+            adminEmail: session.user.email,
+            targetId: userId,
+            details: { newRole: role },
         })
 
         return Response.json(updated)

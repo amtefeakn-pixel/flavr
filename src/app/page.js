@@ -3,8 +3,13 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";
 import ProductShowcase from "@/components/ProductShowcase";
+import { breadcrumbJsonLd, JsonLd } from "@/lib/seo";
 import styles from "./page.module.css";
 import { FlaskConical, Target, RefreshCw, Star } from "lucide-react";
+
+export const metadata = {
+    alternates: { canonical: "https://flavr.com.tr" },
+};
 
 export default function Home() {
   return (

@@ -10,8 +10,39 @@ const outfit = Outfit({
 });
 
 export const metadata = {
-  title: "Flavr - Kişiselleştirilmiş Vitamin Paketleri",
-  description: "Hedeflerinize ve yaşam tarzınıza uygun, günlük vitamin paketleri.",
+  metadataBase: new URL("https://flavr.com.tr"),
+  title: {
+    default: "FLAVR — Kişiselleştirilmiş Vitamin Paketleri",
+    template: "%s | FLAVR",
+  },
+  description: "Bilimsel verilerle hazırlanan, kişiye özel günlük vitamin ve supplement paketleri. Ücretsiz sağlık testi ile başlayın.",
+  keywords: ["vitamin", "supplement", "kişiselleştirilmiş vitamin", "günlük vitamin", "sağlık", "FLAVR", "vitamin paketi", "takviye gıda"],
+  authors: [{ name: "FLAVR" }],
+  creator: "FLAVR",
+  publisher: "FLAVR",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true, "max-video-preview": -1, "max-image-preview": "large", "max-snippet": -1 },
+  },
+  openGraph: {
+    type: "website",
+    locale: "tr_TR",
+    url: "https://flavr.com.tr",
+    siteName: "FLAVR",
+    title: "FLAVR — Kişiselleştirilmiş Vitamin Paketleri",
+    description: "Bilimsel verilerle hazırlanan, kişiye özel günlük vitamin ve supplement paketleri.",
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "FLAVR Vitamin Paketleri" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "FLAVR — Kişiselleştirilmiş Vitamin Paketleri",
+    description: "Bilimsel verilerle hazırlanan, kişiye özel günlük vitamin paketleri.",
+    images: ["/og-image.png"],
+  },
+  alternates: {
+    canonical: "https://flavr.com.tr",
+  },
 };
 
 export const viewport = {

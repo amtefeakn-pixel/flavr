@@ -2,9 +2,16 @@ import { NextResponse } from "next/server";
 import bcrypt from "bcryptjs";
 import prisma from "@/lib/db";
 import { sendWelcomeEmail } from "@/lib/email";
+import { checkRateLimit } from "@/lib/rate-limit";
+import { sanitizeName, sanitizeEmail, validatePassword } from "@/lib/sanitize";
+import { logSecurityEvent } from "@/lib/audit";
 
 export async function POST(req) {
     try {
+        // Rate limit: 5 registrations per minute per IP
+        const limited = checkRateLimit(req, { limit: 5, windowMs: 60000 });
+        if (limited) return limited;
+
         // 1. Parse and validate input
         let body;
         try {
